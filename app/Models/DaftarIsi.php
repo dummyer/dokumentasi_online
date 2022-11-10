@@ -41,6 +41,6 @@ class DaftarIsi extends Model
      */
     public function sidebar()
     {
-        return $this->belongsTo('App\Sidebar');
+        return $this->belongsTo('App\Models\Sidebar');
     }
 }

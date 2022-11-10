@@ -1,18 +1,20 @@
 .base{
 	&__container{
 		display: flex;
+		height:100vh;
+		overflow-y: hidden;
 		.sidebar{
 			&__container{
-				height: 100vh;
 				width: 25vw;
 				background-color:#FAFAFC;
 				overflow-y:auto;
+				overflow-x:hidden;
 				&_menulist{
-					padding:3vw;
-					padding-left:10vw;
+					padding:3%;
+					padding-left:40%;
 					line-height: 2.3;
 					&_logo{
-						width: 100%;
+						width: 70%;
 						height:3em;
 						margin-bottom:2em;
 						&_img{
@@ -23,14 +25,36 @@
 						list-style-type: none;
 						padding: 0;
 						margin: 0;
-						&-label{
-							font-weight: bold;
+						margin-bottom: .5em;
+						.menu_list{
+							display:none;
+						}
+						.menu_list.active{
+							display:block;
+						}
+						a{
+							color: #232323;
+							font-weight: 600;
+							font-size: 1em;
+							position: relative;
+							text-decoration: none;
+						}
+						a:hover{
+							padding:10px;
 						}
 					}
 					&_child{
 						padding-left:15px;
-						&-label{
-							
+						margin-bottom: .5em;
+						a{
+							color: #232323;
+							font-size: 1em;
+							font-weight: 400;
+							position: relative;
+							text-decoration: none;
+						}
+						a:hover{
+							padding:10px;
 						}
 					}
 				}
@@ -38,7 +62,9 @@
 		}
 		.content{
 			&__container{
-				margin: 3vw 3vw 3vw 5vw; /* top right bottom left */
+				max-height:100vh;
+				overflow-y: scroll;
+				padding: 3vw 3vw 3vw 5vw; /* top right bottom left */
 				width: 75vw;
 				&_header{
 					width: 50vw;
@@ -77,7 +103,81 @@
 						}
 					}
 				}
+				&_isi{
+					&_title{
+						font-size: 2.5em;
+						letter-spacing: 0;
+					}
+					&_daftarisi{
+						&_parent{
+							list-style-type: none;
+							padding: 0;
+							margin: 0;
+							margin-bottom: .5em;
+							i{
+								color:#FF291A;
+							}
+							a{
+								color: #232323;
+								font-weight: 500;
+								font-size: 1.2em;
+								position: relative;
+								text-decoration: none;
+								margin-left:2px;
+							}
+						}
+						&_child{
+							padding-left:15px;
+							margin-bottom: .5em;
+							i{
+								color:#FF291A;
+								opacity:0.7;
+								font-size: 1em;
+								font-weight: 500;
+							}
+							a{
+								color: #232323;
+								font-size: 1em;
+								font-weight: 400;
+								position: relative;
+								text-decoration: none;
+								margin-left:2px;
+							}
+						}
+					}
+					border-bottom: .1px solid #D6D6D6;
+				}
+				&_body{
+					&_title{
+						color: #232323;
+						font-size: 1em;
+						font-weight: 400;
+						position: relative;
+						text-decoration: none;
+						margin-left:2px;
+					}
+					h2{
+						i{
+							color:#FF291A;
+							font-size: 1em;
+							font-weight: 500;
+						}
+					}
+					h3{
+						i{
+							color:#FF291A;
+							opacity:0.7;
+							font-size: 1em;
+							font-weight: 400;
+						}
+					}
+					&_content{
+						margin-left:1.5em;
+					}
+					
+				}
 			}
 		}
+		
 	}
 }

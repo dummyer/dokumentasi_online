@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\View;
 */
 
 
-Route::get('/doc/{version?}/{menu?}', [DocController::class, 'index']);
+Route::get('/doc/{version}/{menu?}', [DocController::class, 'index']);
