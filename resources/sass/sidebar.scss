@@ -1,0 +1,83 @@
+.base{
+	&__container{
+		display: flex;
+		.sidebar{
+			&__container{
+				height: 100vh;
+				width: 25vw;
+				background-color:#FAFAFC;
+				overflow-y:auto;
+				&_menulist{
+					padding:3vw;
+					padding-left:10vw;
+					line-height: 2.3;
+					&_logo{
+						width: 100%;
+						height:3em;
+						margin-bottom:2em;
+						&_img{
+							width: 100%;
+						}
+					}
+					&_parent{
+						list-style-type: none;
+						padding: 0;
+						margin: 0;
+						&-label{
+							font-weight: bold;
+						}
+					}
+					&_child{
+						padding-left:15px;
+						&-label{
+							
+						}
+					}
+				}
+			}
+		}
+		.content{
+			&__container{
+				margin: 3vw 3vw 3vw 5vw; /* top right bottom left */
+				width: 75vw;
+				&_header{
+					width: 50vw;
+					height: 5vh;
+					display: flex;
+					&_search{
+						width:90%;
+						&_text{
+							height:1.5em;
+						}
+						&_input{
+							width:100%;
+							border:none;
+							border-bottom: .1px solid #E2E2E2;
+							height:2em;
+							cursor:pointer;
+						}
+						&_input:focus{
+							outline: none;
+							cursor: auto;
+						}
+					}
+					&_version{
+						width:10%;
+						&_text{
+							height:1.5em;
+						}
+						&_select{
+							width:100%;
+							border:none;
+							border-bottom: .1px solid #E2E2E2;
+							height:2em;
+						}
+						&_select:focus{
+							outline: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
