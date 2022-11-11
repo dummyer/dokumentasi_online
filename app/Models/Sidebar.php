@@ -28,5 +28,10 @@ class Sidebar extends Model
     /**
      * @var array
      */
-    protected $fillable = ['title', 'is_parent', 'link_code', 'parent_id', 'is_direct', 'is_scroll', 'is_show', 'created_at', 'updated_at'];
+    protected $fillable = ['title', 'is_parent', 'link_code', 'parent_id', 'is_direct', 'is_scroll', 'is_show', 'version_id', 'created_at', 'updated_at'];
+	
+	public function sidebar_version()
+    {
+        return $this->belongsTo(Version::class, 'version_id');
+    }
 }

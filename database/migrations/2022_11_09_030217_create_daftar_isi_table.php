@@ -21,6 +21,7 @@ class CreateDaftarIsiTable extends Migration
             $table->boolean('is_parent')->default(true);
             $table->integer('parent_id')->nullable();
             $table->longText('content')->nullable();
+            $table->integer('version_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\View;
 */
 
 
+Route::post('/doc/change_version', [DocController::class, 'change_version']);
 Route::get('/doc/{version}/{menu?}', [DocController::class, 'index']);

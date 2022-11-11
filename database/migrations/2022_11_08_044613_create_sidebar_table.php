@@ -22,6 +22,7 @@ class CreateSidebarTable extends Migration
             $table->boolean('is_direct')->default(false);
             $table->boolean('is_scroll')->default(false);
             $table->boolean('is_show')->default(true);
+            $table->integer('version_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

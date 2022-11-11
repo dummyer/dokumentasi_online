@@ -22,6 +22,7 @@ class SidebarSeeder extends Seeder
                 'parent_id' => null,
                 'is_direct' => false,
                 'is_scroll' => false,
+                'version_id' => 1,
             ],
 			[
                 'title' => 'Getting Started',
@@ -30,6 +31,7 @@ class SidebarSeeder extends Seeder
                 'parent_id' => null,
                 'is_direct' => false,
                 'is_scroll' => false,
+                'version_id' => 1,
             ],
 			
 			///////////////////////////////////////////////////
@@ -40,6 +42,7 @@ class SidebarSeeder extends Seeder
 					'parent_id' => 1,
 					'is_direct' => true,
 					'is_scroll' => false,
+					'version_id' => 1,
 				],
 				[
 					'title' => 'Upgrade Guide',
@@ -48,6 +51,7 @@ class SidebarSeeder extends Seeder
 					'parent_id' => 1,
 					'is_direct' => true,
 					'is_scroll' => false,
+					'version_id' => 1,
 				],
 				[
 					'title' => 'Contribution Guide',
@@ -56,6 +60,7 @@ class SidebarSeeder extends Seeder
 					'parent_id' => 1,
 					'is_direct' => true,
 					'is_scroll' => false,
+					'version_id' => 1,
 				],
 				
 			/////////////////////////////////////////////////////
@@ -67,6 +72,7 @@ class SidebarSeeder extends Seeder
 					'parent_id' => 2,
 					'is_direct' => true,
 					'is_scroll' => false,
+					'version_id' => 1,
 				],
 				[
 					'title' => 'Configuration',
@@ -75,6 +81,7 @@ class SidebarSeeder extends Seeder
 					'parent_id' => 2,
 					'is_direct' => true,
 					'is_scroll' => false,
+					'version_id' => 1,
 				],
 				[
 					'title' => 'Directory Structure',
@@ -83,6 +90,7 @@ class SidebarSeeder extends Seeder
 					'parent_id' => 2,
 					'is_direct' => true,
 					'is_scroll' => false,
+					'version_id' => 1,
 				],
             
         ];
@@ -94,6 +102,7 @@ class SidebarSeeder extends Seeder
                 'parent_id' => $value['parent_id'],
                 'is_direct' => $value['is_direct'],
                 'is_scroll' => $value['is_scroll'],
+                'version_id' => $value['version_id'],
             ]);
         }
     }

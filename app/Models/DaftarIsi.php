@@ -34,7 +34,7 @@ class DaftarIsi extends Model
     /**
      * @var array
      */
-    protected $fillable = ['sidebar_id', 'title', 'is_parent', 'parent_id', 'content', 'created_at', 'updated_at'];
+    protected $fillable = ['sidebar_id', 'title', 'is_parent', 'parent_id', 'content', 'version_id', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -42,5 +42,10 @@ class DaftarIsi extends Model
     public function sidebar()
     {
         return $this->belongsTo('App\Models\Sidebar');
+    }
+	
+	public function daftarisi_version()
+    {
+        return $this->belongsTo(Version::class, 'version_id');
     }
 }
