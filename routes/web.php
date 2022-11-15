@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Doc\DocController;
+use App\Http\Controllers\AdminController;
 
 use Illuminate\Support\Facades\View;
 
@@ -18,5 +19,8 @@ use Illuminate\Support\Facades\View;
 */
 
 
+Route::post('/doc/search_doc', [DocController::class, 'search_doc']);
 Route::post('/doc/change_version', [DocController::class, 'change_version']);
 Route::get('/doc/{version}/{menu?}', [DocController::class, 'index']);
+
+Route::get('/admin', [AdminController::class, 'index']);

@@ -39,23 +39,28 @@ class DocController extends Controller
 		$title = ucwords(str_replace('-', ' ', $menu));
 		$active_menu = Sidebar::where('title', 'ILIKE', '%'.$title.'%')->whereHas('sidebar_version', function($q) use($selected_vers){
 			$q->where('version', $selected_vers);
-		})->first();
+		})->orderBy('id', 'asc')->first();
 		$sidebar_list_parent = Sidebar::where('is_show', true)->where('is_parent', true)->whereHas('sidebar_version', function($q) use($selected_vers){
 			$q->where('version', $selected_vers);
-		})->get();
+		})->orderBy('id', 'asc')->get();
 		$sidebar_list_child = Sidebar::where('is_show', true)->where('is_parent', false)->whereHas('sidebar_version', function($q) use($selected_vers){
 			$q->where('version', $selected_vers);
-		})->get();
+		})->orderBy('id', 'asc')->get();
 		$daftar_isi_parent = DaftarIsi::where('is_parent', true)->whereHas('sidebar', function($q) use($title){
 			$q->where('title', 'ILIKE', '%'.$title.'%');
 		})->whereHas('daftarisi_version', function($q) use($selected_vers){
 			$q->where('version', $selected_vers);
-		})->get();
+		})->orderBy('id', 'asc')->get();
 		$daftar_isi_child = DaftarIsi::where('is_parent', false)->whereHas('sidebar', function($q) use($title){
 			$q->where('title', 'ILIKE', '%'.$title.'%');
 		})->whereHas('daftarisi_version', function($q) use($selected_vers){
 			$q->where('version', $selected_vers);
-		})->get();
+		})->orderBy('id', 'asc')->get();
+		
+		$parent_search = DaftarIsi::where('is_parent', true)->with('sidebar')->whereHas('daftarisi_version', function($q) use($selected_vers){
+			$q->where('version', $selected_vers);
+		})->orderBy('id', 'asc')->get();
+		
 		if($version != null){
 			
 		}else{
@@ -63,11 +68,24 @@ class DocController extends Controller
 		}
 		
 		
-		return view('get_started.installation', compact('sidebar_list_parent', 'sidebar_list_child', 'daftar_isi_parent', 'daftar_isi_child', 'title', 'menu', 'active_menu', 'vers'));
+		return view('get_started.installation', compact('sidebar_list_parent', 'sidebar_list_child', 'daftar_isi_parent', 'daftar_isi_child', 'title', 'menu', 'active_menu', 'vers', 'parent_search'));
 	}
 	
 	function change_version(Request $request){
 		session()->put('version', $request->vers);
 		
+	}
+	
+	function search_doc(Request $request){
+		$search = $request->search;
+		$version = $request->version;
+
+		$daftar_isi = DaftarIsi::where(function ($query) use ($search, $version) {
+			$query->where('title', 'ILIKE', '%'.$search.'%')->orWhere('content', 'ILIKE', '%'.$search.'%');
+		})->with('sidebar')->whereHas('daftarisi_version', function($q) use($version){
+			$q->where('version', $version);
+		})->with('daftarisi_version')->orderBy('id', 'asc')->get();
+
+		return $daftar_isi;
 	}
 }
