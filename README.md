@@ -13,6 +13,9 @@
 ```
 npm i
 ```
+```
+npm run dev
+```
 
 - Database
 <p>Database name : dokumentasi_online_db_system</p>
